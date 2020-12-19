@@ -37,29 +37,66 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
-
+   const fifteen = inventors.filter(function(inventor) {
+     if (inventor.year >= 1500 && <= 1600 ){
+          return true;
+        }   
+    })
+    Console.log(fifteen)
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-
+    const fNamelName = inventors.map( inventor => inventor.first + ' ' + inventor.last)
+    Console.log(fNamelName)
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-
+   const birthday = inventors.sort(function(a, b){
+     if (a.year > b.year){
+       return 1;
+     }
+     else {
+       return -1;
+     }
+   })
+   Console.log(birthday)
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-
+    cosnt lived = inventors.reduce((total, inventor)=> {
+      return total + (inventor.passes - inventor.year);
+    }, 0)
+    Console.log(lived)
     // 5. Sort the inventors by years lived
-
+    const totalTime = inventor.sort(function(a,b) => {
+      const lastGuy = a.passed - a.year;
+      const firstGuy = b.passed - b.year;
+      return lastGuy > firstGuy ? -1 : 1;
+    })
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
-
+  const category = document.querySelector('.mw-category');
+  const links = Array.from(category.querySelectorAll ('a'));
+  const de = links 
+            .map(link => links.textContnet)
+            .filter(streetName => streetName.includes('de'));
+consloe.log(de);
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+const alpha = people.sort((lastOne, nextOne) =>{
+  const = [aFirst, aLast] = lastOne.split(', ');
+  const = [bFirst, bLast] = mextOne.split(', ');
+  return lastOne > nextOne ? 1 : -1;
+})
+consloe.log(alpha);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
+const count = data.reduce(function(obj, item){
+  if (!obj[item]){
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}{})
   </script>
 </body>
 </html>
